@@ -76,19 +76,14 @@ class Usuario extends CI_Model
                     $this->session->unset_userdata('user_data');
                 else
                 {
-                    $token2 = crypt($identificador['token2']);
                     $row=$query->row();
-                    //Guardamos el token con un update
-                    $this->db->where('usuario',$row->usuario);
-                    $this->db->update('usuarios',['remember_token'=>$token2]);
                     //Para generar los datos del login
                     $data=['user_data'=>[
                         'id'=>$row->idusuarios,
                         'nombre'=>$row->nombre,
                         'correo'=>$row->correo,
                         'usuario'=>$row->usuario,
-                        'rol'=>$row->rol,
-                        'remember_token'=>$token2]
+                        'rol'=>$row->rol]
                     ];
                     $this->session->set_userdata($data);
                 }
@@ -102,18 +97,4 @@ class Usuario extends CI_Model
         return $this->_ingreso_usuario($credencial);
     }
 
-    private function _consultaToken($id)
-    {
-        //Hacemos la query
-        $query = $this->db->get_where('usuarios',['idusuarios'=>$id]);
-        //Pedimos la fila
-        $row = $query->row();
-        //Se retorna el remember token
-        return $row->remember_token;
-    }
-
-    public function consultaToken($a)
-    {
-        return $this->_consultaToken($a);
-    }
 }

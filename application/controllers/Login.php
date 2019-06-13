@@ -72,7 +72,6 @@ class Login extends CI_Controller {
 			//Recolección de datos
 			$datos['usuario'] = $_POST['user'];
 			$datos['password'] = $_POST['pass'];
-			$datos['token2'] = $_POST['_token_'];
 			//Carga de modelo
 			$this->load->model('Usuario');
 			$retorno = $this->Usuario->ingreso_usuario($datos);

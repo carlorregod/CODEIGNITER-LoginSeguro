@@ -9,7 +9,6 @@ correo VARCHAR(50) NOT NULL UNIQUE,
 usuario VARCHAR(50) NOT NULL UNIQUE,
 password VARCHAR(256) NOT NULL,
 rol INT NOT NULL,
-remember_token VARCHAR(256),
 date TIMESTAMP
 );
 
