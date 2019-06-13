@@ -19,7 +19,6 @@
 ### Seguridad ###
 
 * CSRF por cookies - Por defecto CI
-* Remember token - Personal encriptado por sha1+crypt
 * Password encriptado por hash
 
 ###  ( ͡° ͜ʖ ͡°) ###
